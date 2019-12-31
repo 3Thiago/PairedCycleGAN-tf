@@ -62,7 +62,13 @@ class CycleGAN():
         filenames_A/filenames_B -> takes the list of all training images
         self.image_A/self.image_B -> Input image with each values ranging from [-1,1]
         '''
-
+        
+        if not os.path.exists("./data/YMU/images/makeup_n"):
+            os.makedirs("./data/YMU/images/makeup_n") 
+            
+        if not os.path.exists("./data/YMU/images/makeup_y"):
+            os.makedirs("./data/YMU/images/makeup_y")
+        
         filenames_n = tf.train.match_filenames_once("./data/YMU/images/makeup_n/*.jpg")    
         self.queue_length_n = tf.size(filenames_n)
         filenames_y = tf.train.match_filenames_once("./data/YMU/images/makeup_y/*.jpg")    
