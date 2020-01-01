@@ -100,8 +100,8 @@ class CycleGAN():
         coord = tf.train.Coordinator()
         threads = tf.train.start_queue_runners(coord=coord)
 
-        num_files_A = sess.run(self.queue_length_A)
-        num_files_B = sess.run(self.queue_length_B)
+        num_files_A = sess.run(self.queue_length_n)
+        num_files_B = sess.run(self.queue_length_y)
 
         self.fake_images_A = np.zeros((pool_size,1,img_height, img_width, img_layer))
         self.fake_images_B = np.zeros((pool_size,1,img_height, img_width, img_layer))
